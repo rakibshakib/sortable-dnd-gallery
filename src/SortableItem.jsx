@@ -17,7 +17,6 @@ const SortableItem = (props) => {
     transition: transition || undefined,
   };
 
-  console.log({id: props.id})
 
   return (
     <Item
