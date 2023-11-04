@@ -52,7 +52,7 @@ const DraggableGalleryContainer = () => {
   const handleDragCancel = useCallback(() => {
     setActiveImage(null);
   }, []);
-  console.log({ activeImage, imagesList });
+
   return (
     <DndContext
       sensors={sensors}
