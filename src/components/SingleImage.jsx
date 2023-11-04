@@ -99,7 +99,6 @@ const SingleImage = forwardRef(
           id="isSelected"
           value={images?.isSelected}
           onChange={(e) => {
-            console.log("event clickled");
             dispatch({
               type: "SELECT_IMG_TOGGLE",
               payload: {
