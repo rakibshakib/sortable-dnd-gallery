@@ -80,7 +80,7 @@ const DraggableGalleryContainer = () => {
             images={activeImage}
             index={imagesList.findIndex((img) => img.id === activeImage.id)}
             id={activeImage.id}
-            isDragging
+            isDraggingOverlay
           />
         ) : null}
       </DragOverlay>

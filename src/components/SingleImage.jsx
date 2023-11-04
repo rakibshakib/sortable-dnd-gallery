@@ -6,7 +6,15 @@ const SingleImage = forwardRef(
     props, // id, isDragging,
     ref
   ) => {
-    const { style, faded, index, images, withOpacity, ...rest } = props;
+    const {
+      style,
+      faded,
+      index,
+      images,
+      withOpacity,
+      isDraggingOverlay,
+      ...rest
+    } = props;
     const { dispatch } = useStateContext();
 
     //   const inlineStyles = {
@@ -39,6 +47,7 @@ const SingleImage = forwardRef(
 
     const [isDraggableContainerHover, setDraggableContainerHover] =
       useState(false);
+    const [isCheckBoxHover, setCheckBoxHover] = useState(false);
 
     const draggableContainerStyle = {
       opacity: faded ? "0.2" : "1",
@@ -48,7 +57,7 @@ const SingleImage = forwardRef(
       width: index === 0 ? "295px" : "140px",
       gridRowStart: index === 0 ? "span 2" : null,
       gridColumnStart: index === 0 ? "span 2" : null,
-      cursor: "pointer",
+      cursor: withOpacity ? "move !important" : "pointer !important",
       borderRadius: "8px",
       backgroundColor: "#ffffff",
       position: "relative",
@@ -73,25 +82,35 @@ const SingleImage = forwardRef(
     };
     // console.log({ checkBoxOpacity });
 
-    const handleMouseEnter = () => {
-      setDraggableContainerHover(true);
+    const handleMouseEnter = (isContainer = false) => {
+      if (isContainer) {
+        setDraggableContainerHover(true);
+      } else {
+        setCheckBoxHover(true);
+      }
     };
 
-    const handleMouseLeave = () => {
-      setDraggableContainerHover(false);
+    const handleMouseLeave = (isContainer = false) => {
+      if (isContainer) {
+        setDraggableContainerHover(true);
+      } else {
+        setCheckBoxHover(true);
+      }
     };
     // console.log({ isDraggableContainerHover, isDragging });
     // console.log({ propos: props, withOpacity });
+    // console.log({isDraggingOverlay})
+    console.log({withOpacity})
     return (
       <div
         ref={ref}
         style={draggableContainerStyle}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={() => handleMouseEnter(true)}
+        onMouseLeave={() => handleMouseLeave(true)}
       >
         <input
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={() => handleMouseEnter()}
+          onMouseLeave={() => handleMouseLeave()}
           style={checkBoxOpacity}
           className="imageCheckBox"
           type="checkbox"
@@ -110,6 +129,7 @@ const SingleImage = forwardRef(
         />
         <div
           className={
+            isCheckBoxHover ? "boxContainer" :
             images?.isSelected ? "boxContainerSelected" : "boxContainer"
           }
           style={bgImageStyle}

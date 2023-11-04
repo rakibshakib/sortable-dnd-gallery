@@ -21,51 +21,51 @@ const imagesDataSet = [
     id: 2,
     isSelected: false,
   },
-  {
-    img: image3,
-    id: 3,
-    isSelected: false,
-  },
-  {
-    img: image4,
-    id: 4,
-    isSelected: false,
-  },
-  {
-    img: image5,
-    id: 5,
-    isSelected: false,
-  },
-  {
-    img: image6,
-    id: 6,
-    isSelected: false,
-  },
-  {
-    img: image7,
-    id: 7,
-    isSelected: false,
-  },
-  {
-    img: image8,
-    id: 8,
-    isSelected: false,
-  },
-  {
-    img: image9,
-    id: 9,
-    isSelected: false,
-  },
-  {
-    img: image10,
-    id: 10,
-    isSelected: false,
-  },
-  {
-    img: image11,
-    id: 11,
-    isSelected: false,
-  },
+  // {
+  //   img: image3,
+  //   id: 3,
+  //   isSelected: false,
+  // },
+  // {
+  //   img: image4,
+  //   id: 4,
+  //   isSelected: false,
+  // },
+  // {
+  //   img: image5,
+  //   id: 5,
+  //   isSelected: false,
+  // },
+  // {
+  //   img: image6,
+  //   id: 6,
+  //   isSelected: false,
+  // },
+  // {
+  //   img: image7,
+  //   id: 7,
+  //   isSelected: false,
+  // },
+  // {
+  //   img: image8,
+  //   id: 8,
+  //   isSelected: false,
+  // },
+  // {
+  //   img: image9,
+  //   id: 9,
+  //   isSelected: false,
+  // },
+  // {
+  //   img: image10,
+  //   id: 10,
+  //   isSelected: false,
+  // },
+  // {
+  //   img: image11,
+  //   id: 11,
+  //   isSelected: false,
+  // },
 ];
 
 export const initialState = {
