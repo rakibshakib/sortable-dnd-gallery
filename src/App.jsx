@@ -21,7 +21,7 @@ import Item from "./Item";
 
 const App = () => {
   const [items, setItems] = useState(
-    Array.from({ length: 20 }, (_, i) => (i + 1).toString())
+    Array.from({ length: 11 }, (_, i) => (i + 1).toString())
   );
   const [activeId, setActiveId] = useState(null);
   const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
@@ -60,8 +60,8 @@ const App = () => {
     >
       <SortableContext items={items} strategy={rectSortingStrategy}>
         <Grid columns={5}>
-          {items.map((id) => (
-            <SortableItem key={id} id={id} />
+          {items.map((id, index) => (
+            <SortableItem key={id} id={id} index={index} />
           ))}
         </Grid>
       </SortableContext>

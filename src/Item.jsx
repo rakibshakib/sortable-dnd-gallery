@@ -1,11 +1,13 @@
 import { forwardRef } from 'react';
 
-const Item = forwardRef(({ id, withOpacity, isDragging, style, ...props }, ref) => {
+const Item = forwardRef(({ id, withOpacity, isDragging, style, index, ...props }, ref) => {
     const inlineStyles = {
+        gridRowStart: index === 0 ? "span 2" : null,
+        gridColumnStart: index === 0 ? "span 2" : null,
         opacity: withOpacity ? '0.5' : '1',
         transformOrigin: '50% 50%',
-        height: '140px',
-        width: '140px',
+        height: index === 0 ? "290px" : '140px',
+        width: index === 0 ? "290px" :  '140px',
         borderRadius: '10px',
         cursor: isDragging ? 'grabbing' : 'grab',
         backgroundColor: '#ffffff',
@@ -18,6 +20,7 @@ const Item = forwardRef(({ id, withOpacity, isDragging, style, ...props }, ref) 
         ...style,
     };
 
+    console.log({index})
     return <div ref={ref} style={inlineStyles} {...props}>{id}</div>;
 });
 
