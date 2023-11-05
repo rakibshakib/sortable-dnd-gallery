@@ -9,7 +9,7 @@ const arrayPositionMovingHandler = (prevArry, from, to) => {
   newArray.splice(to, 0, newArray.splice(from, 1)[0]);
   // const updatedImages = [...prevArry];
   // const [draggedImage] = updatedImages.splice(from, 1);
-  // updatedImages.splice(to, 0, draggedImage);
+  // updatedImages.splice(to, 0, draggedImage);  [0, 1 , 2, 3], 0, 2, k = 3 , 
   return newArray;
 };
 
@@ -42,15 +42,19 @@ const galleryReducer = (state, action) => {
 
     case "IMG_MOVING": {
       const movingArray = (prevArry) => {
-        const oldIndex = prevArry.findIndex((item) => item.id == action.payload.activeId);
-        const newIndex = prevArry.findIndex((item) => item.id == action.payload.overId);
+        const oldIndex = prevArry.findIndex(
+          (item) => item.id == action.payload.activeId
+        );
+        const newIndex = prevArry.findIndex(
+          (item) => item.id == action.payload.overId
+        );
         return arrayPositionMovingHandler(prevArry, oldIndex, newIndex);
       };
-      const updateArray = movingArray([...state.imagesList])
+      const updateArray = movingArray([...state.imagesList]);
       return {
-        ...state, 
+        ...state,
         imagesList: updateArray,
-      }
+      };
     }
     case "ADD_IMG": {
       return {

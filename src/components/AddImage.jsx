@@ -13,13 +13,11 @@ const AddImage = ({ imgListLength }) => {
   };
 
   function handleFileSelect(file) {
-    console.log(file);
     const newImageObj = {
       id: imagesList.length + 1,
       img: URL.createObjectURL(file),
       isSelected: false,
     };
-    console.log(newImageObj);
     if (newImageObj.id > 0) {
       dispatch({
         type: "ADD_IMG",

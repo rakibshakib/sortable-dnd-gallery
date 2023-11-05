@@ -70,5 +70,4 @@ const imagesDataSet = [
 
 export const initialState = {
   imagesList: imagesDataSet || [],
-  checkedImageList: [],
 };
