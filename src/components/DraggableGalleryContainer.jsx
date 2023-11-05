@@ -59,6 +59,7 @@ const DraggableGalleryContainer = () => {
     setIsDragging(false);
     setActiveImage(null);
   }, []);
+  
 
   return (
     <DndContext
