@@ -25,7 +25,7 @@ const SingleImage = forwardRef((props, ref) => {
     width: index === 0 ? "295px" : "140px",
     gridRowStart: index === 0 ? "span 2" : null,
     gridColumnStart: index === 0 ? "span 2" : null,
-    cursor: withOpacity ? "move !important" : "pointer !important",
+    cursor: withOpacity ? "default" : "pointer",
     borderRadius: "8px",
     backgroundColor: "#ffffff",
     position: "relative",
