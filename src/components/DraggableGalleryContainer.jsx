@@ -60,7 +60,6 @@ const DraggableGalleryContainer = () => {
     setActiveImage(null);
   }, []);
 
-  console.log({ imagesList });
   return (
     <DndContext
       sensors={sensors}
@@ -90,6 +89,8 @@ const DraggableGalleryContainer = () => {
             index={imagesList.findIndex((img) => img.id === activeImage.id)}
             id={activeImage.id}
             someoneIsDragging={isDragging}
+            withOpacity={isDragging}
+
           />
         ) : null}
       </DragOverlay>

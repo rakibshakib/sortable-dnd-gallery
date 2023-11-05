@@ -96,6 +96,7 @@
 .action_bar_container h4 {
   font-weight: 700;
   font-size: 18px;
+  cursor: default;
 }
 
 .action_bar_container p {
