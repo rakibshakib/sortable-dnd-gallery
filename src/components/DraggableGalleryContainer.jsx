@@ -59,8 +59,8 @@ const DraggableGalleryContainer = () => {
     setIsDragging(false);
     setActiveImage(null);
   }, []);
-  
 
+  console.log({ imagesList });
   return (
     <DndContext
       sensors={sensors}

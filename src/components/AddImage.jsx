@@ -12,16 +12,24 @@ const AddImage = ({ imgListLength }) => {
     inputFile.current.click();
   };
 
-  function handleFileSelect(file) {
-    const newImageObj = {
-      img: URL.createObjectURL(file),
-      id: imagesList?.length > 0 ? imagesList.reduce((max, obj) => (obj.id > max ? obj.id : max), imagesList[0].id) + 1 : 1,
-      isSelected: false,
-    };
-    if (newImageObj.id > 0) {
+  function handleFileSelect(files) {
+    const newImages = [];
+    files.forEach((file, index) => {
+      const newImageObj = {
+        img: URL.createObjectURL(file),
+        id:
+          imagesList.length > 0
+            ? Math.max(...imagesList.map((obj) => obj.id)) + 1 + index
+            : 1 + index,
+        isSelected: false,
+      };
+
+      newImages.push(newImageObj);
+    });
+    if (newImages.length > 0) {
       dispatch({
         type: "ADD_IMG",
-        payload: newImageObj,
+        payload: newImages,
       });
     }
   }
@@ -48,10 +56,12 @@ const AddImage = ({ imgListLength }) => {
           ref={inputFile}
           style={{ display: "none" }}
           onChange={(e) => {
-            if (e.target.files?.[0]) {
-              handleFileSelect(e.target.files[0]);
+            const files = Array.from(e.target.files);
+            if (files.length > 0) {
+              handleFileSelect(files);
             }
           }}
+          multiple
         />
       </div>
     </div>

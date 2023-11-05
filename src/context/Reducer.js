@@ -59,7 +59,7 @@ const galleryReducer = (state, action) => {
     case "ADD_IMG": {
       return {
         ...state,
-        imagesList: [...state.imagesList, action.payload],
+        imagesList: [...state.imagesList, ...action.payload],
       };
     }
     default:
