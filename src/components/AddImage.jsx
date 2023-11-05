@@ -15,7 +15,7 @@ const AddImage = ({ imgListLength }) => {
   function handleFileSelect(file) {
     const newImageObj = {
       img: URL.createObjectURL(file),
-      id: imagesList.reduce((max, obj) => (obj.id > max ? obj.id : max), imagesList[0].id) + 1,
+      id: imagesList?.length > 0 ? imagesList.reduce((max, obj) => (obj.id > max ? obj.id : max), imagesList[0].id) + 1 : 1,
       isSelected: false,
     };
     if (newImageObj.id > 0) {
