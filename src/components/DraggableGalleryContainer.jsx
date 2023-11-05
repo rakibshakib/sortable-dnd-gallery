@@ -82,7 +82,7 @@ const DraggableGalleryContainer = () => {
           <AddImage imgListLength={imagesList.length} />
         </GridBox>
       </SortableContext>
-      <DragOverlay adjustScale style={{ transformOrigin: "0 0 " }}>
+      <DragOverlay adjustScale >
         {activeImage ? (
           <SingleImage
             images={activeImage}
