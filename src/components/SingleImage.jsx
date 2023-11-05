@@ -25,13 +25,15 @@ const SingleImage = forwardRef((props, ref) => {
     width: index === 0 ? "295px" : "140px",
     gridRowStart: index === 0 ? "span 2" : null,
     gridColumnStart: index === 0 ? "span 2" : null,
-    cursor: withOpacity ? "default" : "pointer",
+    cursor: withOpacity ? "grab" : "pointer",
     borderRadius: "8px",
     backgroundColor: "#ffffff",
     position: "relative",
     ...style,
   };
   const bgImageStyle = {
+    opacity: faded ? "0.2" : "1",
+    transformOrigin: "0 0",
     width: "100%",
     height: "100%",
     backgroundImage: `url("${images?.img}")`,

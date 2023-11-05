@@ -16,7 +16,7 @@ const SortableItem = (props) => {
     transform: CSS.Transform.toString(transform),
     transition: transition || undefined,
   };
-
+  console.log(style)
   return (
     <SingleImage
       ref={setNodeRef}
